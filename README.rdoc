@@ -2,11 +2,10 @@
 
 Adds Helper Methods for Google Website Optimizer.
 
-NOTE: Assumes using you are already using ga.js for google analytics tracking.
+*NOTE:* Assumes using you are already using ga.js for google analytics tracking.
 
-NOTE: Will output urchin.js tracking code when in development environment for validation but will
-      output ga.js tracking in production.
-      See http://www.google.com/support/websiteoptimizer/bin/answer.py?hl=en&answer=77083 for explanation.
+*NOTE:* Will output urchin.js tracking code when in development environment for validation but will output ga.js tracking in production.
+See http://www.google.com/support/websiteoptimizer/bin/answer.py?hl=en&answer=77083 for explanation.
 
 = Set Up
 
@@ -19,7 +18,7 @@ Add your Website Optimizer account id to config/environment.rb
 
 == Basic Set Up
 
-  Add/Verify yields in templates.
+Add/Verify yields in templates.
 
 === Before </head> in (x)html document
 
