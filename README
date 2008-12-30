@@ -1,0 +1,64 @@
+WebsiteOptimizer
+================
+
+Adds Helper Methods for Google Website Optimizer.
+
+NOTE: Assumes using you are already using ga.js for google analytics tracking.
+
+NOTE: Will output urchin.js tracking code when in development environment for validation but will
+      output ga.js tracking in production.
+      See http://www.google.com/support/websiteoptimizer/bin/answer.py?hl=en&answer=77083 for explanation.
+
+Set Up
+=======
+
+Add your Website Optimizer account id to config/environment.rb
+
+  WebsiteOptimizerHelper.account_id = 'UA-xxxxx-x'
+
+
+Usage
+=======
+
+= Basic Set Up
+
+  Add/Verify yields in templates.
+
+== Before </head> in (x)html document
+
+  <%= yield :head %>
+
+== Before </body> in (x)html document
+
+	<%= yield :website_optimizer_tracking %>
+
+
+= Multivariate Test
+
+== Test Page
+
+  <% gwo_multivariate 'TEST_ID', 'DESCRIPTION' do -%>
+    CONTROL CONTENT
+  <% end -%>
+
+== Conversion Page
+
+  <% gwo_conversion_script('TEST_ID') -%>
+
+
+= A/B Experiment
+
+== Original Page
+
+  <% gwo_ab_control('TEST_ID') -%>
+
+== Variation Pages
+
+  <% gwo_ab_variation('TEST_ID') -%>
+
+== Conversion Page
+
+  <% gwo_conversion_script('TEST_ID') -%>
+
+
+Copyright (c) 2008 KidZui inc., released under the MIT license
