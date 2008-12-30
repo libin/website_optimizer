@@ -1,12 +1,9 @@
 module WebsiteOptimizerHelper
 
   mattr_accessor :account_id
-  
-  def self.included(base)
-    require_account_id
-  end  
 
   def gwo_multivariate(tracker_id, description, &block)
+    require_account_id
     multivariate_controll_script(tracker_id)
     multivariate_tracking_script(tracker_id)
     multivariate_section_script(description, &block)
@@ -15,6 +12,7 @@ module WebsiteOptimizerHelper
   # Control/Tracking Script for A/B control page
   #
   def gwo_ab_control(tracker_id)
+    require_account_id
     ab_controll_script(tracker_id)
     ab_tracking_script(tracker_id)
   end
@@ -22,6 +20,7 @@ module WebsiteOptimizerHelper
   # Tracking Script for A/B variation pages
   #
   def gwo_ab_variation(tracker_id)
+    require_account_id
     ab_tracking_script(tracker_id)
   end
 
@@ -29,6 +28,7 @@ module WebsiteOptimizerHelper
   # page's source code
   #
   def gwo_conversion_script(tracker_id)
+    require_account_id
     google_analytics_tracking_script(tracker_id, "/#{tracker_id}/goal")
   end
 
